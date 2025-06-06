@@ -1,10 +1,46 @@
-/* 폰트 및 배경 설정 */
+/* 전체 배경 및 초기 애니메이션 설정 */
 body {
     margin: 0;
     font-family: 'Segoe UI', '맑은 고딕', sans-serif;
-    background-color: #eaf4fb;
-    color: #2c3e50;
+    background-color: white;
+    overflow-x: hidden;
 }
+
+/* 인트로 오버레이 */
+.intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.intro-title {
+    font-size: 3em;
+    color: #34495e;
+    opacity: 1;
+    transition: all 1s ease;
+}
+
+/* 숨김 클래스 */
+.hidden {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+/* 나타나는 클래스 */
+.visible {
+    opacity: 1;
+}
+
+/* 폰트 및 배경 설정 */
+
 
 html {
     scroll-behavior: smooth; /* 클릭 시 부드럽게 이동 */
@@ -55,11 +91,13 @@ header h1 {
 
 /* 섹션 스타일 */
 .section {
-    padding: 80px 20px;
+    padding: 40px 20px 150px;
     text-align: center;
-    min-height: 100vh;
+    min-height: 60vh;
     background-color: #f6fbff;
     border-bottom: 1px solid #d0e4f5;
+    scroll-margin: 100px;
+
 }
 
 .section:nth-of-type(even) {
@@ -71,17 +109,6 @@ header h1 {
     margin-bottom: 20px;
 }
 
-/* 고정 홈 버튼 */
-.home-button {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    z-index: 999;
-}
 
 /* 푸터 */
 footer {
