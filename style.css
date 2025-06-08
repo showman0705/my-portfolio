@@ -48,6 +48,9 @@ html {
 
 /* 링크 스타일 */
 a {
+    display: inline;
+    padding: 0;
+    margin: 0;
     text-decoration: none;
     color: #2980b9;
     transition: color 0.3s ease;
@@ -100,15 +103,18 @@ header h1 {
 
 }
 
+
+
 .section:nth-of-type(even) {
     background-color: #eaf4fb;
 }
 
 .section h2 {
-    font-size: 2em;
+    font-size: 3em;
     margin-bottom: 20px;
-}
+    padding-top: 100px;
 
+}
 
 /* 푸터 */
 footer {
@@ -116,5 +122,25 @@ footer {
     padding: 15px 0;
     text-align: center;
     font-size: 0.9em;
+}
+
+.fixed-image {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width:80px;
+}
+
+.list {
+    list-style: none;
+}
+
+.project-list {
+    list-style-position: inside;     /* 숫자와 텍스트를 함께 가운데로 */
+    text-align: center;              /* 텍스트 가운데 정렬 */
+    padding-left: 0;                 /* 기본 왼쪽 들여쓰기 제거 */
+    padding-top: 20px;
+    margin: 20px auto;               /* 가운데 배치 */
+    max-width: 600px;                /* 적당한 너비 제한 */
 }
 
