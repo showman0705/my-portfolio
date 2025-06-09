@@ -4,8 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const header = document.querySelector("header");
     const main = document.querySelector("main");
     const footer = document.querySelector("footer");
+
     const scrollContainer = document.querySelector(".horizontal-scroll");
     const sectionProjects = document.getElementById("projects");
+    const body = document.body;
     let scrollIndex = 0;
     let isScrolling = false;
 
@@ -48,17 +50,17 @@ document.addEventListener("DOMContentLoaded", () => {
         requestAnimationFrame(animate);
     };
 
-    // 🔸 Projects에서만 세로 스크롤 차단 + 가로 슬라이드
+    // 🔸 Projects에서만 스크롤 금지/허용 관리
     sectionProjects.addEventListener("wheel", (e) => {
-        if (!scrollContainer || isScrolling) return;
-
         const items = scrollContainer.children;
         const maxIndex = items.length - 1;
 
-        // ✅ 무조건 세로 스크롤 차단
-        e.preventDefault();
-
         if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+            e.preventDefault();
+
+            // 🔒 스크롤 금지
+            body.classList.add("noscroll");
+
             if (e.deltaY > 0 && scrollIndex < maxIndex) {
                 scrollIndex++;
             } else if (e.deltaY < 0 && scrollIndex > 0) {
@@ -66,8 +68,17 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             const target = scrollContainer.offsetWidth * scrollIndex;
-            isScrolling = true;
-            smoothScrollTo(target);
+            if (!isScrolling) {
+                isScrolling = true;
+                smoothScrollTo(target);
+            }
+
+            // ✅ 슬라이드가 마지막에 도달하면 스크롤 허용
+            if (scrollIndex === maxIndex) {
+                setTimeout(() => {
+                    body.classList.remove("noscroll");
+                }, 900); // 애니메이션 끝난 후
+            }
         }
     }, { passive: false });
 });

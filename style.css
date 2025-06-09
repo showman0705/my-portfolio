@@ -182,3 +182,8 @@ footer {
     margin: 20px auto;
     max-width: 600px;
 }
+
+body.noscroll {
+    overflow: hidden;
+    height: 100vh;
+}
