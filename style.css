@@ -163,12 +163,7 @@ footer {
 }
 
 /* 기타 요소들 */
-.fixed-image {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 80px;
-}
+
 
 .list {
     list-style: none;
