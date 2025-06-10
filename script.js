@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 🔹 인트로 애니메이션
     setTimeout(() => {
-        title.style.transform = "translateY(-200px)";
+        title.style.transform = "translateY(-330px)";
         title.style.fontSize = "2em";
         overlay.style.opacity = "0";
     }, 1500);

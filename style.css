@@ -4,6 +4,7 @@ body {
     font-family: 'Savate', sans-serif;
     background-color: white;
     overflow-x: hidden;
+    user-select: none;
 }
 
 /* 인트로 오버레이 */
@@ -66,20 +67,38 @@ header h1 {
     margin: 0;
     font-size: 2.5em;
 }
+/* 네비게이션 항목을 가로로 정렬 */
 .nav-list {
     display: flex;
     justify-content: center;
-    gap: 25px;
+    align-items: center;
+    gap: 24px; /* 항목 간 간격 */
     list-style: none;
     padding: 10px 0 0;
     margin: 0;
 }
+
+/* 링크 스타일 및 강조 효과 */
 .nav-list li a {
     font-size: 1.1em;
     background-color: #d4ecfb;
-    padding: 8px 16px;
-    border-radius: 8px;
+    padding: 10px 20px;
+    border-radius: 12px;
+    transition:
+            background-color 0.4s ease,
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+    display: inline-block;
 }
+
+/* 마우스를 올렸을 때 부드러운 강조 */
+.nav-list li a:hover {
+    background-color: #66c3ff;
+    color: white;
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
 
 /* 섹션 기본 스타일 */
 .section {
